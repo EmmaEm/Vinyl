@@ -10,9 +10,10 @@ router.post('/sign-up', (req, res) => {
     .then((id) => {
       res.redirect(`users/${id}`)
     })
-    .catch(
-      // TODO: add error handling
-    )
+    .catch((error) => {
+      res.redirect('/sign-up')
+      throw error
+    })
 })
 
 router.get('/sign-in', (req, res) => {
