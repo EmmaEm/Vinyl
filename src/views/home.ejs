@@ -1,0 +1,29 @@
+<%- include partials/header.ejs %>
+
+  <img src="/pictures/record-image.jpg" alt="Sepia toned image of a record-player playing a record">
+
+<div class="row">
+
+<div class="one-third">
+  <h1>Records</h1>
+
+  <div class="album-list">
+    <% albums.forEach(function(album) { %>
+      <div class="box">
+        <h2><a href="/albums/<%= album.id %>"><%= album.title %></a></h2>
+        <p>by <%= album.artist %></p>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<div class="two-thirds">
+  <h1>Recent Reviews</h1>
+
+  <%- include partials/reviews.ejs %>
+
+</div>
+
+</div>
+
+<%- include partials/footer.ejs %>

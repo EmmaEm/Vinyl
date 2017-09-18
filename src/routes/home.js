@@ -1,13 +1,10 @@
 const router = require('express').Router()
 const db = require('../db')
 
-router.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID)
+router.get('/', (req, res) => {
+  db.getAlbums()
     .then((albums) => {
-      const album = albums[0]
-      res.render('albums/album', {album})
+      res.render('home', {albums})
     })
     .catch((error) => {
       res.status(500).render('error', {error})

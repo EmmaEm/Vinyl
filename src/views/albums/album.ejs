@@ -1,0 +1,23 @@
+<title>Vinyl : <%= album.title %></title>
+
+<%- include ../partials/header.ejs %>
+
+<div class="two-thirds center">
+
+  <div class="column center">
+    <h1><%= album.title %></h1>
+    <h3>by <%= album.artist %></h3>
+  </div>
+
+
+  <div class="center row sp-btwn">
+    <h1>Reviews</h1>
+    <a href="/albums/<%= album.id%>/reviews/new">
+      <button>Add review</button>
+    </a>
+  </div>
+
+<%- include ../partials/reviews.ejs %>
+
+</div>
+<%- include ../partials/footer.ejs %>
