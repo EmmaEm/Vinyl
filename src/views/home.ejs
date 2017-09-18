@@ -1,37 +1,24 @@
 <%- include partials/header.ejs %>
 
-  <!-- <h1>Vinyl</h1>
-
-  <h2>Records</h2>
-
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
-      <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
-      </div>
-    <% }) %>
-  </div> -->
-
   <img src="/pictures/record-image.jpg" alt="Sepia toned image of a record-player playing a record">
 
 <div class="row">
 
 <div class="one-third">
-  <h2>Records</h2>
+  <h1>Records</h1>
 
   <div class="album-list">
     <% albums.forEach(function(album) { %>
       <div class="box">
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
+        <h2><a href="/albums/<%= album.id %>"><%= album.title %></a></h2>
+        <p>by <%= album.artist %></p>
       </div>
     <% }) %>
   </div>
 </div>
 
 <div class="two-thirds">
-  <h2>Recent Reviews</h2>
+  <h1>Recent Reviews</h1>
 
   <%- include partials/reviews.ejs %>
 
