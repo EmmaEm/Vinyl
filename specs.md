@@ -135,7 +135,7 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __30:__ Sign in with an invalid email address and password combination.
+- [X] __30:__ Sign in with an invalid email address and password combination.
 
 Layout:
 
