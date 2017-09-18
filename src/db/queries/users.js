@@ -6,7 +6,7 @@ const create = (name, email, password) => {
       users (name, email, password)
     VALUES
       ($1, LOWER($2), $3)
-    RETURNING id
+    RETURNING *
     `, [name, email, password])
     .catch((error) => {
       console.error('\n Error in users.create query')

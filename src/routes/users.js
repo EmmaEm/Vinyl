@@ -7,8 +7,16 @@ router.get('/sign-up', (req, res) => {
 
 router.post('/sign-up', (req, res) => {
   users.create(req.body.name, req.body.email, req.body.password)
-    .then((id) => {
-      res.redirect(`users/${id}`)
+    .then((user) => {
+      req.session.user = user
+      req.session.save((error) => {
+        if (error) {
+          console.error('Error saving session')
+          throw error
+        // } else if (res.locals.page) {
+        //   res.redirect(res.locals.page)
+        } else res.redirect(`users/${user.id}`)
+      })
     })
     .catch((error) => {
       res.redirect('/sign-up')
