@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: rgb(46, 8, 2);
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: rgb(255, 224, 139);
+  text-decoration: none;
+}
+
+h1, h2, h3{
+  font-family: 'Quicksand', sans-serif;
+  color: rgb(255, 224, 139);
+}
+
+.navbar {
+  display:flex;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(90, 16, 4);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
+}
