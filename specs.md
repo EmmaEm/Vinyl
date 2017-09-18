@@ -126,12 +126,12 @@ Users are able to sign in to an account.
 
 Routing:
 
-- [ ] __20:__ Navigating to `/sign-in` loads the sign in page.
+- [X] __20:__ Navigating to `/sign-in` loads the sign in page.
 
 Users can:
 
-- [ ] __20:__ Sign in to an existing account with an email address and password.
-- [ ] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
+- [X] __20:__ Sign in to an existing account with an email address and password.
+- [X] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
 
 Users CANNOT:
 
