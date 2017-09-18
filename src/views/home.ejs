@@ -1,6 +1,6 @@
 <%- include partials/header.ejs %>
 
-  <h1>Vinyl</h1>
+  <!-- <h1>Vinyl</h1>
 
   <h2>Records</h2>
 
@@ -11,6 +11,32 @@
         <span><%= album.artist %></span>
       </div>
     <% }) %>
+  </div> -->
+
+  <img src="/pictures/record-image.jpg" alt="Sepia toned image of a record-player playing a record">
+
+<div class="row">
+
+<div class="one-third">
+  <h2>Records</h2>
+
+  <div class="album-list">
+    <% albums.forEach(function(album) { %>
+      <div class="box">
+        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+        <span><%= album.artist %></span>
+      </div>
+    <% }) %>
   </div>
+</div>
+
+<div class="two-thirds">
+  <h2>Recent Reviews</h2>
+
+  <%- include partials/reviews.ejs %>
+
+</div>
+
+</div>
 
 <%- include partials/footer.ejs %>
