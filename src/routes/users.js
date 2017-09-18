@@ -6,7 +6,7 @@ router.get('/sign-up', (req, res) => {
 })
 
 router.post('/sign-up', (req, res) => {
-  users.create('name', 'email', 'password')
+  users.create(req.body.name, req.body.email, req.body.password)
     .then((id) => {
       res.redirect(`users/${id}`)
     })
