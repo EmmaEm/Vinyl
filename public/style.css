@@ -17,6 +17,34 @@ h1, h2, h3{
   color: rgb(255, 224, 139);
 }
 
+textarea, input{
+  padding: .5em;
+  font-size: .75em;
+}
+
+button{
+  border-radius: 10px;
+  font-size: 1em;
+  padding: .5em;
+  background-color: lightgrey;
+}
+
+.column{
+  display:flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .vinyl {
   font-family: 'Poiret One', cursive;
   font-size: 4em;
