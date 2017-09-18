@@ -50,6 +50,11 @@ img {
   align-items: center;
 }
 
+.center-vertically {
+  display: flex;
+  align-items: center;
+}
+
 .sp-btwn{
   width: 100%;
   display: flex;
