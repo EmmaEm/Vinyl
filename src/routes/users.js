@@ -36,21 +36,12 @@ router.post('/sign-in', (req, res) => {
     .then((user) => {
       if (user.password === req.body.password) {
         createCookie(req, user)
-        res.redirect(`/users/${user.user_id}`)
-
         // if (req.query.redirectUrl) {
         //   return res.redirect(req.query.redirectUrl)
-        // } else {
-        // return res.redirect(`/users/${user.user_id}`)
-        // }
-        // })
-      // } else {
-        // console.error('Incorrect password')
-        // redirect back to sign in
+        res.redirect(`/users/${user.user_id}`)
       } else {
         console.error('Incorrect password')
         res.redirect('/sign-in')
-        // redirect back to sign in
       }
     })
 })
