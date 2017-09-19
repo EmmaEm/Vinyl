@@ -66,8 +66,8 @@ Content in the header varies based on the user's authentication state.
 Users can:
 
 - [X] __20:__ See the name of the website in the site-wide header.
-- [ ] __20:__ See links to "Sign Up" and "Sign In" when logged out.
-- [ ] __20:__ See links to "Profile" and "Sign Out" when logged in.
+- [X] __20:__ See links to "Sign Up" and "Sign In" when logged out.
+- [X] __20:__ See links to "Profile" and "Sign Out" when logged in.
 
 Layout:
 

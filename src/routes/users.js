@@ -1,12 +1,16 @@
 const router = require('express').Router()
 const users = require('../db/queries/users.js')
 
-const createCookie = (req, user) => {
+const createCookieAndRedirect = (req, res, user) => {
   req.session.user = user
   req.session.save((error) => {
     if (error) {
       console.error('Error saving session')
       throw error
+    } else {
+      // if (req.query.redirectUrl) {
+      //   return res.redirect(req.query.redirectUrl)
+      res.redirect(`users/${user.id}`)
     }
   })
 }
@@ -18,8 +22,7 @@ router.get('/sign-up', (req, res) => {
 router.post('/sign-up', (req, res) => {
   users.create(req.body.name, req.body.email, req.body.password)
     .then((user) => {
-      createCookie(req, user)
-      res.redirect(`users/${user.id}`)
+      createCookieAndRedirect(req, res, user)
     })
     .catch((error) => {
       res.redirect('/sign-up')
@@ -35,10 +38,7 @@ router.post('/sign-in', (req, res) => {
   users.getByEmail(req.body.email)
     .then((user) => {
       if (user.password === req.body.password) {
-        createCookie(req, user)
-        // if (req.query.redirectUrl) {
-        //   return res.redirect(req.query.redirectUrl)
-        res.redirect(`/users/${user.id}`)
+        createCookieAndRedirect(req, res, user)
       } else {
         console.error('Incorrect password')
         res.redirect('/sign-in')
