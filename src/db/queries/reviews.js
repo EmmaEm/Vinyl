@@ -12,6 +12,20 @@ const getThreeReviews = () => {
     `)
 }
 
+const create = (content, userId, albumId) => {
+  return db.none(`
+    INSERT INTO reviews
+      (content, user_id, album_id)
+    VALUES
+      ($1, $2, $3)
+    `, [content, userId, albumId])
+    .catch((error) => {
+      console.error('\nError in queries/reviews.new\n')
+      throw error
+    })
+}
+
 module.exports = {
   getThreeReviews,
+  create,
 }
