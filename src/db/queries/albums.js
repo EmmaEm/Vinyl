@@ -1,7 +1,7 @@
 const db = require('../../config/db.js').db
 
 function getAll() {
-  return db.query('SELECT * FROM albums')
+  return db.many('SELECT * FROM albums')
 }
 
 function getReviews(albumId) {
@@ -12,7 +12,7 @@ function getReviews(albumId) {
     RIGHT OUTER JOIN albums
       ON reviews.album_id = albums.id
     WHERE albums.id = $1
-    ORDER BY reviews.id DESC
+    ORDER BY reviews.date_created DESC
     `, [albumId])
     .catch((error) => {
       console.error('\nError in queries.getReviewsByAlbumId\n')
