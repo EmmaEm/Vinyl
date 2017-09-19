@@ -9,7 +9,7 @@ router.use((req, res, next) => {
   let userId = null
   if (req.session.user) {
     loggedIn = true
-    userId = req.session.user.user_id
+    userId = req.session.user.id
   }
   res.locals = {loggedIn, userId}
   next()
