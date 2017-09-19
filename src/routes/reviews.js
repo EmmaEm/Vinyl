@@ -1,8 +1,13 @@
 const router = require('express').Router()
-// const db = require('../db')
+const albums = require('../db/queries/albums')
 
-router.get('/new-review/:albumId', (req, res) => {
-  res.render('reviews/new-review')
+// NOTE: Everything in this file is only accessible when user is logged in.
+
+router.get('/albums/:albumId/reviews/new', (req, res) => {
+  albums.getById(req.params.albumId)
+    .then((album) => {
+      res.render('reviews/new-review', {album})
+    })
 })
 
 module.exports = router

@@ -17,7 +17,18 @@ router.use((req, res, next) => {
 
 router.use('/', albums)
 router.use('/', users)
-router.use('/', reviews)
 router.use('/', home)
+
+router.use((req, res, next) => {
+  if (req.session.user) {
+    next()
+  } else {
+    res.send('you must be logged in')
+  }
+})
+
+// NOTE: Any route beyond this point is only accessible by logged in users
+
+router.use('/', reviews)
 
 module.exports = router

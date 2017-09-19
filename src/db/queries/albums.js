@@ -1,10 +1,17 @@
 const db = require('../../config/db.js').db
 
-function getAll() {
+const getAll = () => {
   return db.many('SELECT * FROM albums')
 }
 
-function getReviews(albumId) {
+const getById = (albumId) => {
+  return db.one(`
+    SELECT * FROM albums
+      WHERE id = $1
+    `, [albumId])
+}
+
+const getReviews = (albumId) => {
   return db.many(`
     SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist FROM reviews
     JOIN users
@@ -22,5 +29,6 @@ function getReviews(albumId) {
 
 module.exports = {
   getAll,
+  getById,
   getReviews,
 }
