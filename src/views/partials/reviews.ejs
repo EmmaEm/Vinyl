@@ -1,12 +1,36 @@
-<div class="box">
+<% if (reviews) { %>
 
-  <div class="row sp-btwn center-vertically">
-    <a href="/albums/#"><h2>album title</h2></a>
-    <h3>review date</h3>
-    <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='#'>
+
+<%reviews.forEach((review) => { %>
+  <div class="box">
+
+    <div class="row sp-btwn center-vertically">
+      <a href="/albums/<%= review.album_id %>"><h2><%= review.title %></h2></a>
+      <h3><%= review.date_created %></h3>
+      <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='#'>
+    </div>
+
+    <p><%= review.content %></p>
+
+    <p>by <a href="/users/<%= review.user_id %>"><%= review.name %></a></p>
   </div>
+<% }) %>
 
-  <p>Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. </p>
 
-  <p>by <a href="#">username</a></p>
-</div>
+
+
+<% } else{ %>
+  <!-- NOTE: This 'else' is just placeholder until all the pages have reviews in their routes -->
+  <div class="box">
+
+    <div class="row sp-btwn center-vertically">
+      <a href="/albums/#"><h2>album title</h2></a>
+      <h3>review date</h3>
+      <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='#'>
+    </div>
+
+    <p>Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. Review review review review. </p>
+
+    <p>by <a href="#">username</a></p>
+  </div>
+<% } %>
