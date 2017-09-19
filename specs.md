@@ -150,11 +150,11 @@ Users are able to sign out.
 
 Users can:
 
-- [ ] __20:__ Be redirected to the home page (e.g. `/`) after signing out by clicking the Sign Out button.
+- [X] __20:__ Be redirected to the home page (e.g. `/`) after signing out by clicking the Sign Out button.
 
 Users CANNOT:
 
-- [ ] __20:__ Perform any actions that require a user to be signed in after signing out.
+- [X] __20:__ Perform any actions that require a user to be signed in after signing out.
 
 ## User Profile
 
