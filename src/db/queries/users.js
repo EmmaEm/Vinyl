@@ -24,7 +24,24 @@ const getByEmail = (email) => {
     })
 }
 
+const getReviews = (userId) => {
+  return db.many(`
+    SELECT * FROM reviews
+    RIGHT OUTER JOIN users
+      ON reviews.user_id = users.user_id
+    LEFT OUTER JOIN albums
+      ON reviews.album_id = albums.id
+    WHERE users.user_id = $1
+    ORDER BY review_id DESC
+    `, [userId])
+    .catch((error) => {
+      console.error('\nError in queries.getReviewsByUserId\n')
+      throw error
+    })
+}
+
 module.exports = {
   create,
   getByEmail,
+  getReviews,
 }
