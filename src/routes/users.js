@@ -46,6 +46,15 @@ router.post('/sign-in', (req, res) => {
     })
 })
 
+router.get('/sign-out', (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      console.error('Error destroying session')
+      throw error
+    } else res.redirect('/')
+  })
+})
+
 router.get('/users/:userId', (req, res) => {
   res.render('users/profile')
 })
