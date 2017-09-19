@@ -3,11 +3,11 @@ const deleteReview = (deleteButton) => {
   if (confirmDelete) {
     const reviewId = deleteButton.target.getAttribute('data-review-id')
     console.log(`Delete review # ${reviewId}`)
-    // fetch(`/deletereview/${reviewId}`, {method: 'delete', credentials: 'include'})
-    //   .then(location.reload())
-    //   .catch((error) => {
-    //     console.error(error)
-    //   })
+    fetch(`/deletereview/${reviewId}`, {method: 'delete', credentials: 'include'})
+      .then(location.reload())
+      .catch((error) => {
+        console.error(error)
+      })
   }
 }
 
