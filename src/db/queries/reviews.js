@@ -25,7 +25,19 @@ const create = (content, userId, albumId) => {
     })
 }
 
+const deleteById = (reviewId) => {
+  return db.none(`
+    DELETE FROM reviews
+      WHERE id = $1
+    `, [reviewId])
+    .catch((error) => {
+      console.error('\nError in queries/review.deleteById\n')
+      throw error
+    })
+}
+
 module.exports = {
   getThreeReviews,
   create,
+  deleteById,
 }
