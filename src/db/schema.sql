@@ -15,7 +15,7 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
   id SERIAL,
-  content VARCHAR (255) NOT NULL,
+  content TEXT NOT NULL,
   user_id INT NOT NULL,
   album_id INT NOT NULL,
   date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
