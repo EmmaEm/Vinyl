@@ -1,5 +1,13 @@
 const db = require('../../config/db.js').db
 
+const getById = (reviewId) => {
+  return db.one('SELECT * FROM reviews WHERE id = $1', [reviewId])
+    .catch((error) => {
+      console.error('\nError in reviews/getById\n')
+      throw error
+    })
+}
+
 const getThreeReviews = () => {
   return db.many(`
     SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist FROM reviews
@@ -25,7 +33,20 @@ const create = (content, userId, albumId) => {
     })
 }
 
+const deleteById = (reviewId) => {
+  return db.none(`
+    DELETE FROM reviews
+      WHERE id = $1
+    `, [reviewId])
+    .catch((error) => {
+      console.error('\nError in queries/review.deleteById\n')
+      throw error
+    })
+}
+
 module.exports = {
+  getById,
   getThreeReviews,
   create,
+  deleteById,
 }

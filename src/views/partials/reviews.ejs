@@ -4,11 +4,14 @@
     <div class="row sp-btwn center-vertically">
       <a href="/albums/<%= review.album_id %>"><h2><%= review.title %></h2></a>
       <h3><%= review.date_created %></h3>
-      <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='#'>
+      <% if (review.user_id === userId) { %>
+        <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='<%= review.id %>'>
+      <% } %>
     </div>
 
     <p><%= review.content %></p>
 
     <p>by <a href="/users/<%= review.user_id %>"><%= review.name %></a></p>
+    
   </div>
 <% }) %>

@@ -26,7 +26,8 @@ const getByEmail = (email) => {
 
 const getReviews = (userId) => {
   return db.many(`
-    SELECT * FROM reviews
+    SELECT reviews.id, content, user_id, album_id, date_created, name, email, join_date, photo, title, artist
+    FROM reviews
     RIGHT OUTER JOIN users
       ON reviews.user_id = users.id
     LEFT OUTER JOIN albums
