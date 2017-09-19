@@ -58,7 +58,6 @@ router.get('/sign-out', (req, res) => {
 router.get('/users/:userId', (req, res) => {
   users.getReviews(req.params.userId)
     .then((reviews) => {
-      console.log(reviews)
       res.render('users/profile', {reviews})
     })
 })
