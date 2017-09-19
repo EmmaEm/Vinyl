@@ -12,3 +12,11 @@ CREATE TABLE users (
   join_date DATE DEFAULT CURRENT_DATE,
   photo VARCHAR(255) DEFAULT '/pictures/profile.jpg'
 );
+
+CREATE TABLE reviews (
+  id SERIAL,
+  content TEXT NOT NULL,
+  user_id INT NOT NULL,
+  album_id INT NOT NULL,
+  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
