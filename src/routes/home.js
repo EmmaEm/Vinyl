@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const db = require('../db')
+const albumQueries = require('../db/queries/albums')
 
 router.get('/', (req, res) => {
-  db.getAlbums()
+  albumQueries.getAll()
     .then((albums) => {
       res.render('home', {albums})
     })

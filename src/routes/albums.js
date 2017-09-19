@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const db = require('../db')
+const albumQueries = require('../db/queries/albums')
 
 router.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
+  const albumId = req.params.albumID
 
-  db.getAlbumsByID(albumID)
+  albumQueries.getById(albumId)
     .then((albums) => {
       const album = albums[0]
       res.render('albums/album', {album})
