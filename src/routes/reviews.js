@@ -19,4 +19,8 @@ router.post('/albums/:albumId/reviews/new', (req, res) => {
     .then(res.redirect(`/albums/${albumId}`))
 })
 
+router.delete('/deletereview/:reviewId', (req) => {
+  reviews.deleteById(req.params.reviewId)
+})
+
 module.exports = router
