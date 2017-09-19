@@ -5,7 +5,7 @@
 <div class="column center">
   <h1>New review for <a href="/albums/<%= album.id %>"><%= album.title %></a></h1>
   <br>
-  <form class="column center" action="#" method="post">
+  <form class="column center" action='/albums/<%= album.id %>/reviews/new' method="post">
     <textarea name="content" rows="4" cols="70" required></textarea>
   <br>
   <br>
