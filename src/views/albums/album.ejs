@@ -1,18 +1,18 @@
-<title>Vinyl : <%= album.title %></title>
+<title>Vinyl : <%= reviews[0].title %></title>
 
 <%- include ../partials/header.ejs %>
 
 <div class="two-thirds center">
 
   <div class="column center">
-    <h1><%= album.title %></h1>
-    <h3>by <%= album.artist %></h3>
+    <h1><%= reviews[0].title %></h1>
+    <h3>by <%= reviews[0].artist %></h3>
   </div>
 
 
   <div class="center row sp-btwn">
     <h1>Reviews</h1>
-    <a href="/albums/<%= album.id%>/reviews/new">
+    <a href="/albums/<%= reviews[0].album_id %>/reviews/new">
       <button>Add review</button>
     </a>
   </div>

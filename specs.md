@@ -192,8 +192,8 @@ Routing:
 
 Users can:
 
-- [ ] __20:__ View the name of the album on the album page.
-- [ ] __20:__ View all reviews for the album on album page sorted by newest first.
+- [X] __20:__ View the name of the album on the album page.
+- [X] __20:__ View all reviews for the album on album page sorted by newest first.
 - [ ] __20:__ View "trash can" delete icons next to reviews the user can delete.
 - [ ] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the trash can icon next to a review.
 - [ ] __20:__ Have the pop-up dismissed after clicking Cancel.
