@@ -7,6 +7,9 @@
   <br>
   <form class="column center" action='/albums/<%= album.id %>/reviews/new' method="post">
     <textarea name="content" rows="4" cols="70" required></textarea>
+    <br>
+    <h3>Star rating (1-5)</h3>
+    <input type="number" min="0" max="5" name="star_rating">
   <br>
   <br>
   <br>

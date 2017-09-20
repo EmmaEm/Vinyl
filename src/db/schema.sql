@@ -18,5 +18,6 @@ CREATE TABLE reviews (
   content TEXT NOT NULL,
   user_id INT NOT NULL,
   album_id INT NOT NULL,
-  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  star_rating INT
 );

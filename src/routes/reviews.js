@@ -18,7 +18,8 @@ router.post('/albums/:albumId/reviews/new', (req, res) => {
   const reviewContent = req.body.content
   const userId = res.locals.userId
   const albumId = req.params.albumId
-  reviews.create(reviewContent, userId, albumId)
+  const starRating = req.body.star_rating
+  reviews.create(reviewContent, userId, albumId, starRating)
     .then(res.redirect(`/albums/${albumId}`))
     .catch((error) => {
       res.status(500).render('error', {error})

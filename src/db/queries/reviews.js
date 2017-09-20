@@ -10,7 +10,8 @@ const getById = (reviewId) => {
 
 const getThreeReviews = () => {
   return db.many(`
-    SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist FROM reviews
+    SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist, star_rating
+    FROM reviews
       JOIN users
         ON reviews.user_id = users.id
       JOIN albums
@@ -20,13 +21,13 @@ const getThreeReviews = () => {
     `)
 }
 
-const create = (content, userId, albumId) => {
+const create = (content, userId, albumId, starRating) => {
   return db.none(`
     INSERT INTO reviews
-      (content, user_id, album_id)
+      (content, user_id, album_id, star_rating)
     VALUES
-      ($1, $2, $3)
-    `, [content, userId, albumId])
+      ($1, $2, $3, $4)
+    `, [content, userId, albumId, starRating])
     .catch((error) => {
       console.error('\nError in queries/reviews.new\n')
       throw error
