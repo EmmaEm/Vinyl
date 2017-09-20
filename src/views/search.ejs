@@ -1,0 +1,21 @@
+<%- include partials/header.ejs %>
+<div class="two-thirds center">
+
+<h1>Search Results</h1>
+
+<% if (searchResults[0]) {%>
+  <% searchResults.forEach((result) => { %>
+    <div class="box column">
+      <h1> <%= result.title %> </h1>
+      <h2>by <%= result.artist %></h2>
+    </div>
+  <% }) %>
+<% } else {%>
+  <div class="box column">
+    <p>I'm sorry. There were no results that matched your search.</p>
+  </div>
+<% } %>
+
+</div>
+
+<%- include partials/footer.ejs %>

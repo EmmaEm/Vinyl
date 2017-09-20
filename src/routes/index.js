@@ -4,6 +4,7 @@ const albums = require('./albums.js')
 const users = require('./users.js')
 const reviews = require('./reviews.js')
 const home = require('./home.js')
+const search = require('./search.js')
 
 router.use((req, res, next) => {
   let loggedIn = false
@@ -26,6 +27,7 @@ router.use('/', (req, res, next) => {
 router.use('/', albums)
 router.use('/', users)
 router.use('/', home)
+router.use('/', search)
 
 router.use((req, res, next) => {
   if (req.session.user) {

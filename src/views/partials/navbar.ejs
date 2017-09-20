@@ -2,6 +2,11 @@
 
   <a href="/"><h1 class="vinyl">Vinyl</h1></a>
 
+  <form action="/search" method="post">
+    <input type="text" name="searchTerm" value="">
+    <button type="submit" name="search">Search</button>
+  </form>
+
   <% if (loggedIn) { %>
 
     <a href="/users/<%=userName%>">
