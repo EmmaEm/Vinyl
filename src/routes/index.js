@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const moment = require('moment')
 const albums = require('./albums.js')
 const users = require('./users.js')
 const reviews = require('./reviews.js')
@@ -12,6 +13,11 @@ router.use((req, res, next) => {
     userId = req.session.user.id
   }
   res.locals = {loggedIn, userId}
+  next()
+})
+
+router.use('/', (req, res, next) => {
+  res.locals.moment = moment
   next()
 })
 

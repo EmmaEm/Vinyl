@@ -1,5 +1,4 @@
-<!-- TODO: Update <title> with user's name -->
-<title>Vinyl : User's Profile</title>
+<title>Vinyl : <%= reviews[0].name %>'s Profile</title>
 
 <%- include ../partials/header.ejs %>
 
@@ -17,10 +16,16 @@
     </div>
     <div class="row sp-btwn">
       <h3>Date Joined</h3>
-      <h3><%= reviews[0].join_date %></h3>
+      <h3><%= moment(reviews[0].join_date).format("MMM Do YYYY") %></h3>
     </div>
 
-    <%- include ../partials/reviews.ejs %>
+    <% if(reviews[0].content){ %>
+      <%- include ../partials/reviews.ejs %>
+    <% } else { %>
+      <div class="box">
+        <p>This user has not written any reviews</p>
+      </div>
+    <% } %>
 
       <!-- <div class="box">
         <p>This user has not written any reviews</p>

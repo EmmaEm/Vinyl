@@ -9,6 +9,9 @@ router.get('/albums/:albumId/reviews/new', (req, res) => {
     .then((album) => {
       res.render('reviews/new-review', {album})
     })
+    .catch((error) => {
+      res.status(500).render('error', {error})
+    })
 })
 
 router.post('/albums/:albumId/reviews/new', (req, res) => {
@@ -17,14 +20,23 @@ router.post('/albums/:albumId/reviews/new', (req, res) => {
   const albumId = req.params.albumId
   reviews.create(reviewContent, userId, albumId)
     .then(res.redirect(`/albums/${albumId}`))
+    .catch((error) => {
+      res.status(500).render('error', {error})
+    })
 })
 
-router.delete('/deletereview/:reviewId', (req) => {
+router.delete('/deletereview/:reviewId', (req, res) => {
   reviews.getById(req.params.reviewId)
     .then((review) => {
       if (review.user_id === req.session.user.id) {
         reviews.deleteById(req.params.reviewId)
+          .catch((error) => {
+            res.status(500).render('error', {error})
+          })
       } else (console.error('Error deleting review'))
+    })
+    .catch((error) => {
+      res.status(500).render('error', {error})
     })
 })
 

@@ -17,7 +17,14 @@
     </a>
   </div>
 
-<%- include ../partials/reviews.ejs %>
+  <% if(reviews[0].content){ %>
+    <%- include ../partials/reviews.ejs %>
+  <% } else { %>
+    <div class="box">
+      <p>This album has no reviews.</p>
+    </div>
+  <% } %>
+
 
 </div>
 <%- include ../partials/footer.ejs %>

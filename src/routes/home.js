@@ -1,5 +1,4 @@
 const router = require('express').Router()
-// const home = require('../db/queries/home')
 const albums = require('../db/queries/albums')
 const reviews = require('../db/queries/reviews')
 
@@ -9,6 +8,9 @@ const getThreeReviews = (req, res, next) => {
       req.reviews = threeReviews
       next()
     })
+    .catch((error) => {
+      res.status(500).render('error', {error})
+    })
 }
 
 const getAllAlbums = (req, res, next) => {
@@ -16,6 +18,9 @@ const getAllAlbums = (req, res, next) => {
     .then((allAlbums) => {
       req.albums = allAlbums
       next()
+    })
+    .catch((error) => {
+      res.status(500).render('error', {error})
     })
 }
 

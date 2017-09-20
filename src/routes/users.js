@@ -8,8 +8,6 @@ const createCookieAndRedirect = (req, res, user) => {
       console.error('Error saving session')
       throw error
     } else {
-      // if (req.query.redirectUrl) {
-      //   return res.redirect(req.query.redirectUrl)
       res.redirect(`users/${user.id}`)
     }
   })
@@ -44,6 +42,10 @@ router.post('/sign-in', (req, res) => {
         res.redirect('/sign-in')
       }
     })
+    .catch((error) => {
+      res.redirect('/sign-in')
+      throw error
+    })
 })
 
 router.get('/sign-out', (req, res) => {
@@ -59,6 +61,9 @@ router.get('/users/:userId', (req, res) => {
   users.getReviews(req.params.userId)
     .then((reviews) => {
       res.render('users/profile', {reviews})
+    })
+    .catch((error) => {
+      res.status(500).render('error', {error})
     })
 })
 
