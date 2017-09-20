@@ -16,7 +16,7 @@
     </div>
     <div class="row sp-btwn">
       <h3>Date Joined</h3>
-      <h3><%= reviews[0].join_date %></h3>
+      <h3><%= moment(reviews[0].join_date).format("MMM Do YYYY") %></h3>
     </div>
 
     <% if(reviews[0].content){ %>
