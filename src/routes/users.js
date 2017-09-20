@@ -44,6 +44,10 @@ router.post('/sign-in', (req, res) => {
         res.redirect('/sign-in')
       }
     })
+    .catch((error) => {
+      res.redirect('/sign-in')
+      throw error
+    })
 })
 
 router.get('/sign-out', (req, res) => {
