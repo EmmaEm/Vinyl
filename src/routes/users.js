@@ -8,8 +8,6 @@ const createCookieAndRedirect = (req, res, user) => {
       console.error('Error saving session')
       throw error
     } else {
-      // if (req.query.redirectUrl) {
-      //   return res.redirect(req.query.redirectUrl)
       res.redirect(`users/${user.id}`)
     }
   })
