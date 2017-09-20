@@ -2,7 +2,6 @@ const router = require('express').Router()
 const users = require('../db/queries/users.js')
 
 const createCookieAndRedirect = (req, res, user, redirect) => {
-  console.log('line 5', redirect);
   req.session.user = user
   req.session.save((error) => {
     if (error) {
@@ -17,13 +16,13 @@ const createCookieAndRedirect = (req, res, user, redirect) => {
 }
 
 router.get('/sign-up', (req, res) => {
-  res.render('users/sign-up')
+  res.render('users/sign-up', {redirectUrl: req.query.redirectUrl})
 })
 
 router.post('/sign-up', (req, res) => {
   users.create(req.body.name, req.body.email, req.body.password)
     .then((user) => {
-      createCookieAndRedirect(req, res, user, null)
+      createCookieAndRedirect(req, res, user, req.query.redirectUrl)
     })
     .catch((error) => {
       res.redirect('/sign-up')
@@ -32,12 +31,10 @@ router.post('/sign-up', (req, res) => {
 })
 
 router.get('/sign-in', (req, res) => {
-  console.log('redirect in the get', req.query.redirectUrl)
   res.render('users/sign-in', {redirectUrl: req.query.redirectUrl})
 })
 
 router.post('/sign-in', (req, res) => {
-  console.log('redirect in the post', req.query.redirectUrl)
   users.getByEmail(req.body.email)
     .then((user) => {
       if (user.password === req.body.password) {
