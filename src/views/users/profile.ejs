@@ -20,7 +20,13 @@
       <h3><%= reviews[0].join_date %></h3>
     </div>
 
-    <%- include ../partials/reviews.ejs %>
+    <% if(reviews[0].content){ %>
+      <%- include ../partials/reviews.ejs %>
+    <% } else { %>
+      <div class="box">
+        <p>This user has not written any reviews</p>
+      </div>
+    <% } %>
 
       <!-- <div class="box">
         <p>This user has not written any reviews</p>
