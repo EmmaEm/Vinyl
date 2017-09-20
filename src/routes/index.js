@@ -8,11 +8,13 @@ const home = require('./home.js')
 router.use((req, res, next) => {
   let loggedIn = false
   let userId = null
+  let userName = null
   if (req.session.user) {
     loggedIn = true
     userId = req.session.user.id
+    userName = req.session.user.name
   }
-  res.locals = {loggedIn, userId}
+  res.locals = {loggedIn, userId, userName}
   next()
 })
 

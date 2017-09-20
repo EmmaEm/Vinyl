@@ -24,7 +24,7 @@ const getByEmail = (email) => {
     })
 }
 
-const getReviews = (userId) => {
+const getReviews = (name) => {
   return db.many(`
     SELECT reviews.id, content, user_id, album_id, date_created, name, email, join_date, photo, title, artist
     FROM reviews
@@ -32,9 +32,9 @@ const getReviews = (userId) => {
       ON reviews.user_id = users.id
     LEFT OUTER JOIN albums
       ON reviews.album_id = albums.id
-    WHERE users.id = $1
+    WHERE users.name = $1
     ORDER BY reviews.date_created DESC
-    `, [userId])
+    `, [name])
     .catch((error) => {
       console.error('\nError in queries.getReviewsByUserId\n')
       throw error

@@ -8,7 +8,7 @@ const createCookieAndRedirect = (req, res, user) => {
       console.error('Error saving session')
       throw error
     } else {
-      res.redirect(`users/${user.id}`)
+      res.redirect(`users/${user.name}`)
     }
   })
 }
@@ -57,8 +57,8 @@ router.get('/sign-out', (req, res) => {
   })
 })
 
-router.get('/users/:userId', (req, res) => {
-  users.getReviews(req.params.userId)
+router.get('/users/:name', (req, res) => {
+  users.getReviews(req.params.name)
     .then((reviews) => {
       res.render('users/profile', {reviews})
     })
