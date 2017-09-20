@@ -64,6 +64,9 @@ router.get('/users/:userId', (req, res) => {
     .then((reviews) => {
       res.render('users/profile', {reviews})
     })
+    .catch((error) => {
+      res.status(500).render('error', {error})
+    })
 })
 
 module.exports = router
