@@ -6,7 +6,7 @@
 
   <h1>Sign In</h1>
 
-  <form class="column center" action="/sign-in" method="post">
+  <form class="column center" action="/sign-in/?redirectUrl=<%= redirectUrl %>" method="post">
     <h3>Email:</h3>
     <input type="text" name="email" required>
     <h3>Password:</h3>

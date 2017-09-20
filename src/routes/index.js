@@ -33,7 +33,7 @@ router.use((req, res, next) => {
   if (req.session.user) {
     next()
   } else {
-    res.redirect('/sign-in')
+    res.redirect(`/sign-in/?redirectUrl=${req.url}`)
   }
 })
 
