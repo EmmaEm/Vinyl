@@ -3,9 +3,18 @@
 
     <div class="row sp-btwn center-vertically">
       <a href="/albums/<%= review.album_id %>"><h2><%= review.title %></h2></a>
-      <% if(review.star_rating){ %>
-        <h3>Stars: <%= review.star_rating %></h3>
+
+      <% if(review.star_rating !== null){ %>
+        <div class="row">
+          <% for(let i=0; i<review.star_rating; i++) { %>
+            <h3 class="star">&#9733</h3>
+          <% } %>
+          <% for(let i=0; i<(5-review.star_rating); i++) { %>
+            <h3 class="star">&#9734</h3>
+          <% } %>
+        </div>
       <% } %>
+
       <h3><%= moment(review.date_created).format("MMM Do YYYY") %></h3>
       <% if (review.user_id === userId) { %>
         <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='<%= review.id %>'>
