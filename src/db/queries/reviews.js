@@ -10,7 +10,7 @@ const getById = (reviewId) => {
 
 const getThreeReviews = () => {
   return db.many(`
-    SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist, star_rating
+    SELECT reviews.id, content, user_id, album_id, date_created, name, title, artist, star_rating, photo
     FROM reviews
       JOIN users
         ON reviews.user_id = users.id

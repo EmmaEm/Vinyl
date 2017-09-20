@@ -9,7 +9,7 @@
 
   <div class="album-list">
     <% albums.forEach(function(album) { %>
-      <div class="box">
+      <div class="box column">
         <h2><a href="/albums/<%= album.id %>"><%= album.title %></a></h2>
         <p>by <%= album.artist %></p>
       </div>
