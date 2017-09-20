@@ -1,5 +1,4 @@
 const router = require('express').Router()
-// const home = require('../db/queries/home')
 const albums = require('../db/queries/albums')
 const reviews = require('../db/queries/reviews')
 
