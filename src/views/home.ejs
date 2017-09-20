@@ -20,7 +20,46 @@
 <div class="two-thirds">
   <h1>Recent Reviews</h1>
 
-  <%- include partials/reviews.ejs %>
+  <%reviews.forEach((review) => { %>
+    <div class="box row">
+
+      <div class="one-third">
+        <img src="<%= review.photo %>" alt="User's profile photo">
+        <p>by <a href="/users/<%= review.name %>"><%= review.name %></a></p>
+      </div>
+
+      <div class="two-thirds">
+        <div class="row sp-btwn center-vertically">
+          <a href="/albums/<%= review.album_id %>"><h2><%= review.title %></h2></a>
+
+          <% if(review.star_rating !== null){ %>
+            <div class="row">
+              <% for(let i=0; i<review.star_rating; i++) { %>
+                <h3 class="star">&#9733</h3>
+              <% } %>
+              <% for(let i=0; i<(5-review.star_rating); i++) { %>
+                <h3 class="star">&#9734</h3>
+              <% } %>
+            </div>
+          <% } %>
+
+          <h3><%= moment(review.date_created).format("MMM Do YYYY") %></h3>
+          <% if (review.user_id === userId) { %>
+            <img src="/pictures/trash.png" alt="delete" class="delete-review" data-review-id='<%= review.id %>'>
+          <% } %>
+        </div>
+
+        <% if(review.content.length > 400) { %>
+          <p><%= review.content.slice(0, 400) %>...</p>
+          <a href="/albums/<%= review.album_id %>">See complete review on album page</a>
+        <% } else { %>
+          <p><%= review.content %></p>
+        <% } %>
+
+      </div>
+
+    </div>
+  <% }) %>
 
 </div>
 
